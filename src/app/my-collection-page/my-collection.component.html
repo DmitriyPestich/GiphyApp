@@ -1,0 +1,14 @@
+<div class="gifs" *ngIf="myColectionGifs.length ; else noPosts">
+    <div class="container_gif" *ngFor="let gif of myColectionGifs | reverse">
+        <app-my-gif
+            class="gif"
+            [gif]="gif"
+            (onRemove)="removeGif($event)"
+        ></app-my-gif>
+    </div>
+</div>
+<ng-template #noPosts>
+    <div class="no_posts">
+        <h3>Not have GIF</h3>
+    </div>
+</ng-template>

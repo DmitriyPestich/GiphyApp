@@ -1,0 +1,25 @@
+<img class="gifimg" loading="lazy" alt="img" [src]="gif.images.downsized.url" (click)="show = true">
+
+<div class="popup" [@popup] *ngIf="show">
+    <div class="overlay">
+        <div class="container">
+            <div class="close_btn">
+                <button class="btn" (click)="show = false">Close</button>
+            </div>
+            <div class="container_image">
+                <img alt="" [src]="gif.images.downsized.url">
+            </div>
+            <div class="control_btn" *ngIf="auth.isAuthenticated()">
+                <button class="btn btn_add" *ngIf="gifsServise.myGifs.indexOf(gif.id) === -1; else hidden"
+                        (click)="addGif(gif.id)">Add GIF
+                </button>
+                <ng-template #hidden>
+                    <button class="btn btn_remove" (click)="removeGif(gif.id)">Remove GIF</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

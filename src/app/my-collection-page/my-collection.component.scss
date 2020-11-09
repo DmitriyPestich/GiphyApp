@@ -1,0 +1,36 @@
+.gifs{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 300px;
+  .container_gif {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .gif{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.no_posts{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h3{
+    font-size: 22px;
+  }
+}
+
+/* Responsive Code Start */
+//Laptop or small devices
+
+@media only screen and (max-width: 350px){
+  .gifs{
+    grid-template-columns: none;
+  }
+}
+

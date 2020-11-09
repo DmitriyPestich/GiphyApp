@@ -1,0 +1,52 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+        {{error}}
+    </div>
+
+    <div class="alert alert-info" *ngIf="message">
+        {{message}}
+    </div>
+
+    <div class="form-control"
+        [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+    >
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email">
+        <div
+           *ngIf="form.get('email').touched && form.get('email').invalid"
+           class="validation"
+        >
+            <small *ngIf="form.get('email').errors.required">
+                Check enter email
+            </small>
+            <small *ngIf="form.get('email').errors.email">
+                This is not an email
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control"
+         [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+    >
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password">
+        <div
+           *ngIf="form.get('password').touched && form.get('password').invalid"
+           class="validation"
+        >
+            <small *ngIf="form.get('password').errors.required">
+                Check enter password
+            </small>
+            <small *ngIf="form.get('password').errors.minlength">
+                Password must be at least 6 characters
+            </small>
+        </div>
+    </div>
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="form.invalid || submitted"
+    >Login</button>
+</form>

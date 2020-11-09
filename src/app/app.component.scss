@@ -1,0 +1,91 @@
+.navbar {
+  font-size: 18px;
+  h1 a {
+    padding: 0;
+    color: white;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li a {
+      color: #fff;
+      margin: 0 0.25rem;
+      padding: 0.70rem;
+      transition: 100ms ease-in-out;
+      &:hover {
+        transition: 100ms ease-in-out;
+        background: rgba(255, 255, 255, 0.24);
+      }
+    }
+    li.active a {
+      font-weight: bold;
+      color: #333333;
+      cursor: default;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  .auth {
+    .btn {
+      font-size: 18px;
+    }
+  }
+}
+
+/* Responsive Code Start */
+//Laptop or small devices
+
+@media only screen and (max-width: 640px) {
+  .navbar {
+    h1 {
+      display: none;
+    }
+    ul {
+      li {
+        a:first-child {
+          padding-left: 0;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .navbar .auth{
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .navbar{
+    display: block;
+    text-align: center;
+    h1{
+      display: block;
+      margin-bottom: 15px;
+    }
+    ul{
+      font-size: 22px;
+      display: block;
+      text-align: center;
+      li{
+        margin-bottom: 15px;
+        a{
+          margin: 0;
+          padding: 15px!important;
+        }
+      }
+      ul li a {
+        &:hover {
+          background: none!important;
+        }
+      }
+    }
+    .auth{
+      margin-left: 0;
+      .btn{
+        padding: 0.6rem 1.6rem;
+        font-size: 22px;
+      }
+    }
+  }
+}

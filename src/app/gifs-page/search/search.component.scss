@@ -1,0 +1,24 @@
+.search_container{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  input{
+    width: 50%;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+  }
+}
+
+
+/* Responsive Code Start */
+//Laptop or small devices
+
+@media only screen and (max-width: 640px){
+  .search_container{
+    input{
+      width: 75%;
+    }
+  }
+}

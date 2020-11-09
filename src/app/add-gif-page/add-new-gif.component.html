@@ -1,0 +1,67 @@
+<div class="form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <div class="add_tag">
+                <input
+                    formControlName="tags"
+                    id="tags"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter tags"
+                    #tags
+                    (click)="success = ''">
+                <button class="btn" type="button" (click)="addTag(tags.value); tags.value = ''">Add tag</button>
+            </div>
+
+            <div class="container-tags">
+                <div class="tags" *ngFor="let tag of arrTags; let idx = index">
+                    <span class="tag">#{{tag}}</span>
+                    <span class="material-icons" (click)="removeTag(idx)">clear</span>
+                </div>
+            </div>
+
+            <div *ngIf="form.get('tags').touched && form.get('tags').invalid; else tagLength" class="alert alert-danger">
+                <div>Tags is required.</div>
+            </div>
+
+            <ng-template #tagLength>
+                <div *ngIf="form.get('tags').touched && arrTags.length === 0" class="alert alert-danger">
+                    <div>Tags is required.</div>
+                </div>
+            </ng-template>
+        </div>
+
+        <div class="form-group">
+            <input
+                formControlName="url"
+                id="url"
+                type="text"
+                placeholder="Any url"
+                class="form-control">
+            <div *ngIf="form.get('url').touched && form.get('url').invalid" class="alert alert-danger">
+                <div *ngIf="form.get('url').errors.required">File is required.</div>
+                <div *ngIf="form.get('url').errors.pattern">It’s not url</div>
+            </div>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+
+        <div class="alert" *ngIf="procesing">
+            {{procesing}}
+        </div>
+        <div class="alert-success" *ngIf="success">
+            {{success}}
+        </div>
+
+        <button class="btn btn-primary" type="submit"
+                [disabled]="form.invalid ||
+                arrTags.length === 0 ||
+                submitted
+        ">
+            Submit</button>
+    </form>
+</div>
+

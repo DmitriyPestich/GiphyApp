@@ -1,0 +1,16 @@
+<img class="gifimg" loading="lazy" alt="" [src]="gif.images.downsized.url" (click)="show = true">
+<button class="btn_remove material-icons" (click)="removeGif(gif.id)">clear</button>
+<ng-template [ngIf]="show">
+    <div class="popup" [@popup] *ngIf="show">
+        <div class="overlay">
+            <div class="container">
+                <div class="close_btn">
+                    <button class="btn" (click)="show = false">Close</button>
+                </div>
+                <div class="container_image">
+                    <img alt="" [src]="gif.images.downsized.url" >
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
