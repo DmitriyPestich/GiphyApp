@@ -67,3 +67,31 @@ form{
   }
 }
 
+/* Responsive Code Start */
+//Laptop or small devices
+
+@media only screen and (max-width: 700px){
+  .add_tag{
+    .btn{
+      padding: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 380px){
+  form{
+    padding: 0;
+    border: 0;
+    .add_tag{
+      display: block!important;
+      margin-bottom: 45px;
+      input{
+        border: 1px solid #ccc!important;
+      }
+      .btn{
+        height: 37px;
+        width: 100px;
+      }
+    }
+  }
+}

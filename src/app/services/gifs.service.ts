@@ -13,14 +13,14 @@ export class GifsService {
     gifs$ = new Subject<any>();
     myColectionGifs$ = new Subject<any>();
     myGifs: any = [];
-    title: string = 'Trending';
+    title: string = 'Trend';
 
     constructor(private http: HttpClient) {}
 
     getTrendingGifs() {
         this.http.get(`https://api.giphy.com/v1/gifs/trending?api_key=${environment.giphyApiKey}&limit=100&rating=g`)
             .subscribe(value => {
-                    this.title = 'Trending';
+                    this.title = 'Trend';
                     this.gifs$.next(value);
                 }
             );
@@ -51,7 +51,6 @@ export class GifsService {
     }
 
     removeIDinLS(id) {
-        console.log(this.myGifs);
         let p = new Promise(resolve => {
             resolve(this.myGifs = this.myGifs.filter(gifId => gifId != id));
         });

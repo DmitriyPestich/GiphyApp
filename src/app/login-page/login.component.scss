@@ -4,3 +4,13 @@ form {
   border: #ccc 1px dotted;
   padding: 45px;
 }
+
+@media only screen and (max-width: 380px){
+  form{
+    padding: 0;
+    border: 0;
+    .alert{
+      padding: 0.1rem;
+    }
+  }
+}

@@ -21,15 +21,9 @@
                 </div>
             </div>
 
-            <div *ngIf="form.get('tags').touched && form.get('tags').invalid; else tagLength" class="alert alert-danger">
+            <div *ngIf="form.get('tags').touched && form.get('tags').invalid" class="alert alert-danger">
                 <div>Tags is required.</div>
             </div>
-
-            <ng-template #tagLength>
-                <div *ngIf="form.get('tags').touched && arrTags.length === 0" class="alert alert-danger">
-                    <div>Tags is required.</div>
-                </div>
-            </ng-template>
         </div>
 
         <div class="form-group">
@@ -37,11 +31,11 @@
                 formControlName="url"
                 id="url"
                 type="text"
-                placeholder="Any url"
+                placeholder="URL"
                 class="form-control">
             <div *ngIf="form.get('url').touched && form.get('url').invalid" class="alert alert-danger">
-                <div *ngIf="form.get('url').errors.required">File is required.</div>
-                <div *ngIf="form.get('url').errors.pattern">It’s not url</div>
+                <div *ngIf="form.get('url').errors.required">URL is required.</div>
+                <div *ngIf="form.get('url').errors.pattern">It’s not URL</div>
             </div>
         </div>
 

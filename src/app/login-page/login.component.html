@@ -18,7 +18,7 @@
            class="validation"
         >
             <small *ngIf="form.get('email').errors.required">
-                Check enter email
+                Check entered email
             </small>
             <small *ngIf="form.get('email').errors.email">
                 This is not an email
@@ -36,7 +36,7 @@
            class="validation"
         >
             <small *ngIf="form.get('password').errors.required">
-                Check enter password
+                Check entered password
             </small>
             <small *ngIf="form.get('password').errors.minlength">
                 Password must be at least 6 characters
@@ -48,5 +48,5 @@
         type="submit"
         class="btn btn-primary"
         [disabled]="form.invalid || submitted"
-    >Login</button>
+    >Log in</button>
 </form>

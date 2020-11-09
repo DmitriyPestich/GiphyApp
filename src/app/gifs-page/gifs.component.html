@@ -1,5 +1,5 @@
 <app-search></app-search>
-<h1 class="title">{{gifsServise.title}}</h1>
+<h1 class="title">{{gifsServise.title | uppercase}}</h1>
 <div class="gifs">
     <div class="container_gif" *ngFor="let gif of gifs" >
         <app-gif [gif]="gif" class="gif"></app-gif>
